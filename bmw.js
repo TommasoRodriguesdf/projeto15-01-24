@@ -1,36 +1,14 @@
-let listaProdutos = 
-[
-  {
-      "id": 1,
-      "marca":"BMW",
-      "nome": "cavalo",
-      "preco": 12.11,
-      "imagen":"https://cdn.autopapo.com.br/box/uploads/2021/10/20131814/motor-v8-big-block-chevrolet-10.4-632.jpg"
-  },
-  {
-      "id": 2,
-      "marca":"FERRARI",
-      "nome": "cavala",
-      "preco": 11.11,
-      "imagen":"https://d1gl66oyi6i593.cloudfront.net/wp-content/uploads/2018/03/Motor-V5.jpg"
-  },
-  {
-      "id": 3,
-      "marca":"BMW",
-      "nome": "cavale",
-      "preco": 13.11,
-      "imagen":"https://cdn.appdealersites.com.br/bamaq/2016-02-16-motor-mercedes2.webp"
-  }
-  ];
+let listaProdutos;
 
-/*fetch("dados.json")
+fetch("dados.json")
   .then((response) => response.json())
   .then((data) => {
-    listaProdutos = data;
-    exibirProdutos(listaProdutos);
+    listaProdutos = data 
+    main();
   })
-  .catch((error) => console.log("Erro ao acessar o arquivo " + error));*/
+  .catch((error) => console.log("Erro ao acessar o arquivo " + error));
 
+let main = () =>{
 let main = document.querySelector("main");
 
 let exibirProdutos = (lista) => {
@@ -82,3 +60,29 @@ let marca = () => {
     exibirProdutos(listaProdutos);
 
 };
+document.querySelector("#carro1").addEventListener("click", () => ordenar(listaProdutos))
+document.querySelector("#carro2").addEventListener("click", () => ordenarPreso(listaProdutos))
+document.querySelector("#carro3").addEventListener("click", () => marca(listaProdutos))
+
+let pesquisa = () =>{
+
+let potesia = document.querySelector("#motor1");
+
+listaProdutos = listaProdutos.filter((caixa)=>{
+if(potesia.value.toUpperCase().trim() === caixa.marca.toUpperCase().trim() ){
+   return caixa;
+}
+if(potesia.value.toUpperCase().trim() === caixa.nome.toUpperCase().trim() ){
+  return caixa;
+}
+if(potesia.value.trim() === caixa.preco.toString().trim() ){
+  return caixa;
+}
+
+});
+exibirProdutos(listaProdutos);
+}
+document.querySelector("#motor2").addEventListener("click", () => pesquisa())
+
+}
+
