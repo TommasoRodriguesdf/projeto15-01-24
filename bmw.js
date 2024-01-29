@@ -15,26 +15,33 @@ let exibirProdutos = (lista) => {
   main.innerHTML = "";
   lista.map((item) => {
     let div = document.createElement("div");
-    main.appendChild(div);
-
-    let p = document.createElement("p");
-    main.appendChild(p);
-    div.appendChild(p);
-    p.textContent = item.nome;
-
-    let span = document.createElement("span");
-    main.appendChild(span);
-    div.appendChild(span);
-    span.textContent = item.preco;
+    div.className="card"
+    main.appendChild(div); 
 
     let img = document.createElement("img");
+    img.className="card-img-top"
     main.appendChild(img);
     div.appendChild(img);
     img.src = item.imagen;
 
+    let divCard = document.createElement("div");
+    divCard.className="card-body"
+    div.appendChild(divCard); 
+
+    let p = document.createElement("p");
+    p.className="card-text"
+    main.appendChild(p);
+    divCard.appendChild(p);
+    p.textContent = item.nome;
+
+    let span = document.createElement("span");
+    main.appendChild(span);
+    divCard.appendChild(span);
+    span.textContent = item.preco;
+
     let marca = document.createElement("p");
     main.appendChild(marca);
-    div.appendChild(marca);
+    divCard.appendChild(marca);
     marca.textContent = item.marca;
   });
 };

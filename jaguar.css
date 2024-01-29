@@ -1,4 +1,15 @@
-img{
-    width: 30%;
-    height: 30%;
+body{
+    background-size:cover;
+    background-image: url("carros-4-1320x880.jpg");
+}
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;    
+}
+.card{
+    width: 500px;
+    height: 100px;
+    margin-bottom: 20px;
 }
